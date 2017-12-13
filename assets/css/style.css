@@ -49,7 +49,7 @@ body {
   font-family: var(--main-font);
   display: grid;  /*for layout using grid*/
   grid-gap: 0rem;
-  grid-template-rows: auto auto 1fr auto;
+  grid-template-rows: auto;
   grid-template-columns: auto;
   grid-template-areas:
     "header"
@@ -231,19 +231,37 @@ main {
 }
 
 #images {
-  flex-flow: column wrap;
+
+  flex-flow: row nowrap;
   column-count: 2;
   column-gap: 0.5rem;
 }
 
+
+
 main img {
-  display: flex;
-  flex: 1 1 auto;
+  display: inline-block;
+  /*flex: 1 1 auto;*/
   width: 100%;
-  margin-bottom: 1rem;
+  /*margin-bottom: 1rem;*/
   border-radius: 1rem;
 }
 
+#imgDiv {
+  /*padding: 4px;*/
+  display:inline-table;
+  margin: 4px;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
+}
+
+.rating {
+  margin-top: 3px;
+  margin-bottom: 6px;
+  text-align: center;
+
+}
 /*--- Footer ---*/
 
 footer {
@@ -258,6 +276,8 @@ footer {
   line-height: 2.5rem;
   bottom: 0;
 }
+
+
 
 /*--- Media Queries ---*/
 

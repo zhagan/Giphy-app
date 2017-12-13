@@ -6,10 +6,10 @@ $(document).ready(function() {
 	giphy.start();
 });
 
-var buttonsArray = ['painting', 'building', 'coding', 'crafting',
-	'cooking', 'dreaming'];
-var key = 'dc6zaTOxFJmzC';
-var queryURL = 'https://api.giphy.com/v1/gifs/search?&api_key=' + key + '&limit=15';
+var buttonsArray = ['synths', 'lights', 'coding', 'people',
+	'guitar', 'surfing'];
+var key = 'VSisPgesWW7Jxx5UuqPv51qyy0OlR3s7';
+var queryURL = 'https://api.giphy.com/v1/gifs/search?&api_key=' + key + '&limit=10';
 
 var giphy = {
 
@@ -81,15 +81,22 @@ var giphy = {
 		console.log(data);
 		$('#images').empty();
 		$.each(data, function (i){
+			// var imageContainer = $('<div id="image-container">');
 			var urlStill = data[i].images.original_still.url;
 			var urlAnim = data[i].images.original.url;
 			var title = data[i].title;
+			var rating = data[i].rating;
+			var imgDiv = $('<div id="imgDiv">');
 			var img = $('<img>');
+			imgDiv.append(img);
 			img.attr('src', urlStill);
 			img.attr('data-still', urlStill);
 			img.attr('data-anim', urlAnim);
 			img.attr('data-title', title);
-			$('#images').append(img);
+			// img.attr('figcaption', rating);
+			imgDiv.append(`<h3 class="rating">${rating}</h3>`);
+			$('#images').append(imgDiv);
+
 		});
 	},
 
