@@ -1,8 +1,9 @@
 //--- JavaScript for ______---//
 
 $(document).ready(function() {
-	$('#images, #modalImg').on('click', 'img', giphy.clickImage);
-	$('#images').on('dblclick', 'img', giphy.modal.generateImg);
+	$('#images').on('click', 'img', giphy.clickImage);
+	$('#images').on('dblclick', 'div', giphy.deleteImage);
+	// $('#images').children().on('dblclick', giphy.deleteImage);
 	giphy.start();
 });
 
@@ -112,37 +113,21 @@ var giphy = {
 		}
 	},
 
-	modal: {
+	deleteImage: function() {
 
-		generateImg: function() {
-			var urlAnim = $(this).attr('data-anim')
-			var urlStill = $(this).attr('data-still')
-			var title = $(this).attr('data-title')
-			//generates image with same characteristics
-			var img = $('<img>');
-			img.attr('src', urlAnim);
-			img.attr('data-still', urlStill);
-			img.attr('data-anim', urlAnim);
-			//put this image in the modal
-			$('#modalImg').html(img);
-			$('#modalTitle').html(title);
-			giphy.modal.show();
-		},
+		  var div = $(this);
+		  div.hide();
+		 console.log("ping");
+		// var src = img.attr('src');
+		// var urlStill = img.attr('data-still')
+		// var urlAnim = img.attr('data-anim')
+		// if (src === urlStill) {
+		// 	img.attr('src', urlAnim);
+		// } else {
+		// 	img.attr('src', urlStill);
+		// }
 
-		show: function() {
-			// get modal and close button
-			var modal = $('.modal')[0];
-			var close = $('#close');
-
-			//show modal
-			modal.style.display = "block"
-
-			// hide modal when close button clicked
-			close.on('click', giphy.modal.hide);
-		},
-
-		hide: function() {
-			$('.modal')[0].style.display = "none"
-		},
 	},
+
+
 }

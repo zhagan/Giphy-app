@@ -69,20 +69,23 @@ header {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+
   color: var(--header-font-color);
 }
 
 #header-title {
-  margin-right: auto;
+
+  /*margin-right: auto;*/
   font-family: var(--accent-font);
   letter-spacing: 1.5px;
 }
 
 header h2 {
-  float: left;
+  float: none;
   margin: 0;
   font-family: var(--styled-font);
   color: var(--styled-font-color);
+  text-align: center;
 }
 
 nav {
